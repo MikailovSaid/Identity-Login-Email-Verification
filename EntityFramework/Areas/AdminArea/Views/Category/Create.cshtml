@@ -1,0 +1,23 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container">
+    <form class="forms-sample" method="post" asp-action="Create">
+        <div class="form-group">
+            @* For Naming Label *@
+            <label asp-for="Name"></label>
+            <input type="text" class="form-control" asp-for="Name" placeholder="Category" style="width:350px;" maxlength="50">
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+        
+        <button type="submit" class="btn btn-primary me-2">Submit</button>
+        <a asp-action="Index" class="btn btn-light">Cancel</a>
+    </form>
+</div>
+
+@section Scripts{ 
+    <partial name="_ValidationPartialView" />
+}
+

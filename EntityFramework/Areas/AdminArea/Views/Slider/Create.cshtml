@@ -1,0 +1,22 @@
+﻿@* For One File *@
+@*@model Slider*@
+
+@* For More Than One File *@
+@model SliderVM
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container">
+    <form class="forms-sample" method="post" asp-action="Create" enctype="multipart/form-data">
+        <div class="form-group">
+            @* For Naming Label *@
+            <label asp-for="Photos"></label>
+            <input  class="form-control" asp-for="Photos"  style="width:350px;">
+            <span class="text-danger" asp-validation-for="Photos"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary me-2">Submit</button>
+        <a asp-action="Index" class="btn btn-light">Cancel</a>
+    </form>
+</div>

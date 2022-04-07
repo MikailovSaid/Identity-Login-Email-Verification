@@ -1,0 +1,70 @@
+﻿@model List<BasketDetailVM>
+@{
+    ViewData["Title"] = "Basket";
+    int count = 1;
+    decimal price = 0;
+}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="header d-flex justify-content-between mt-3">
+            <h1>Basket</h1>
+            
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Number
+                        </th>
+                        <th>
+                            Image
+                        </th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Count
+                        </th>
+                        <th>
+                            Price
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+                    <tr>
+                        <td>
+                            @count
+                        </td>
+                        <td>
+                            <img src="~/img/@item.ProductImage" height="150" />
+                        </td>
+                        <td>
+                            @item.ProductName
+                        </td>
+                        <td>
+                            @item.Count
+                        </td>
+                        <td>
+                            @item.Price
+                        </td>
+                    </tr>
+                        count++;
+                        price += item.Price;
+
+                    }
+                    
+                    <h3>Total Price:@price</h3>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
